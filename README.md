@@ -88,8 +88,14 @@ Build a web tool that allows users to enter the location they are traveling to a
 
 ## List of third-party resources
 * [Webpack courses](www.udacity.com) from Udacity
+* [Geonames API](https://www.geonames.org/) from which we get a city's geo location
+* [Pixabay API](https://pixabay.com/) from which we get a city's image
+* [Weatherbit API](https://www.weatherbit.io/) from which we get weather forecast
+
 
 ## Addtional Notes
+**Important**
+* Due to Weatherbit API free access limit, departure date for this demo can only be one day from today 
 
 
 
