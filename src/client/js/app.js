@@ -22,6 +22,11 @@ function performAction(){
         console.log(mdy);
         return new Date(mdy[0],mdy[1]-1,mdy[2]); //year, month, day
     }
+    //check departure date is later than today's date, if not stop here
+    if (!Client.checkDate(parseDate(today),parseDate(date))){
+        alert("Departure date must be later than today's date");
+        return;
+    }    
     function datediff(first_date, second_date){
         // Take the difference between the dates and divide by milliseconds per day.
         // Round to nearest whole number to deal with DST.

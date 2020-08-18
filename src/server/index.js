@@ -47,7 +47,6 @@ const server = app.listen(port, listening);
   
   function addWeather(req,res){
     // console.log(req.body)
-    
     newEntry = {
       date: req.body.date,
       days: req.body.days,
