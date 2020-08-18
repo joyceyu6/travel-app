@@ -1,11 +1,5 @@
 var path = require('path')
 const express = require('express');
-// const dotenv = require('dotenv');
-// dotenv.config()
-// var app_id = defaultClient.authentications["app_id"];
-// app_id.apiKey = process.env.API_ID;
-// var app_key = defaultClient.authentications["app_key"];
-// app_key.apiKey = process.env.API_KEY;
 
 // Start up an instance of app
 const app = express();
@@ -59,7 +53,8 @@ const server = app.listen(port, listening);
       days: req.body.days,
       city: req.body.city,
       max_temp: req.body.max_temp,
-      min_temp: req.body.min_temp
+      min_temp: req.body.min_temp,
+      img:req.body.img
 
     }
     
