@@ -48,13 +48,12 @@ const server = app.listen(port, listening);
   function addWeather(req,res){
     // console.log(req.body)
     newEntry = {
-      date: req.body.date,
-      days: req.body.days,
-      city: req.body.city,
-      max_temp: req.body.max_temp,
-      min_temp: req.body.min_temp,
-      img:req.body.img
-
+    date: req.body.date,
+    days: req.body.days,
+    city: req.body.city,
+    max_temp: req.body.max_temp,
+    min_temp: req.body.min_temp,
+    img:req.body.img
     }
     
     // weatherData.push(newEntry)
@@ -66,4 +65,4 @@ const server = app.listen(port, listening);
     }
     console.log(weatherData);
     res.end();
-  }
+}

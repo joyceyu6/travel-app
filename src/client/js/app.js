@@ -117,6 +117,8 @@ const updateUI = async () => {
     document.getElementById('min_temp').innerHTML = allData[0].min_temp;
     document.getElementById('returnCity').innerHTML = allData[0].city;
     document.getElementById('days').innerHTML = allData[0].days;
+    console.log(allData[0].img);
+    document.getElementById('img').src = allData[0].img
     }catch(error){
         console.log("error",error)
     }
