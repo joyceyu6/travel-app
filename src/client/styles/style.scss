@@ -29,106 +29,79 @@
     // grid-template-columns: repeat(3,minmax(150px, 1fr));
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(10,1fr);
-    // grid-template-areas:
-    //     "h holder holder"
-    //     "h holder holder"
-    //     "h holder holder"
-    //     "image post post"
-    //     "image post post"
-    //     "image post post"
-    //     "image post post"
-    //     "image post post"
-    //     "image post post"
-
+    grid-template-areas:
+        "b1 b1 b1"
+        "h h holder"
+        "h h holder"
+        "h h holder"
+        "b2 b2 b2"
+        "pic pic post"
+        "pic pic post"
+        "pic pic post"
+        "pic pic post"
+        "b3 b3 b3"
 }
 
-.headbuffer{
+.b1,.h,.holder{
     width: 100%;
     height: 100%;
-    background: #F8FA9D;   
-    grid-column-start:1;
-    grid-column-end: 4;
-    grid-row-start:1;
-    grid-row-end:2;
+    background: #F8FA9D;
+}
+
+.b2,.pic,.post,.b3{
+    width: 100%;
+    height: 100%;
+    background: pink;
+}
+.headbuffer{
+    grid-area: b1;
 }
 
 .header{
-    width:100%;
-    height: 100%;
-    // border: 1px solid red;
-    background: #F8FA9D;
-    // grid-area: 2/1/3/2
-    grid-column-start:1;
-    grid-column-end: 3;
-    grid-row-start:2;
-    grid-row-end:5;
+    grid-area: h;
 }
 
 .image{
     // justify-self: stretch;
     // align-self:stretch;
-    width: 100%;
-    height: 100%;
-    background: pink;
     object-fit: cover;
-    grid-area: 6/1/11/3
+    grid-area: pic;
 }
 
 .city{
-    width: 100%;
-    height: 100%;
-    background: #F8FA9D;
     grid-area: 2/3/3/4 /*grid-row-start+grid-column-start+grid-row-end+grid-column-end*/
 }
 
 .departure{
-    width: 100%;
-    height: 100%;
-    background: #F8FA9D;
     grid-area: 3/3/4/4
 }
 
 .button{
-    width: 100%;
-    height: 100%;
-    background: #F8FA9D;
-    // align-self:start;
     grid-area: 4/3/5/4
 }
 
 .buffer{
-    width: 100%;
-    height: 100%;
-    background: pink;
-    grid-area: 5/1/6/4
+    grid-area: b2;
 }
 
 .returnCity{
-    width: 100%;
-    height: 100%;
-    background: pink;
     grid-area: 6/3/7/4
 }
 
 .returnDate{
-    width: 100%;
-    height: 100%;
-    background: pink;
     grid-area: 7/3/8/4
 }
 
 .days{
-    width: 100%;
-    height: 100%;
-    background: pink;
     grid-area: 8/3/9/4
 }
 
 .weather{
-    width: 100%;
-    height: 100%;
-    background: pink;
-    grid-area: 9/3/12/4
+    grid-area: 9/3/10/4
+}
+
+.endbuffer{
+    grid-area: b3;
 }
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
@@ -139,23 +112,16 @@ label{
 
 input{
     display:block;
-    // height: 60px;
-    // width: 320px;
-    // background:#22b2da;
-    // color: #f0d43a;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
-    // border: none;
+    
 }
 
 button{
-    // width: 400px;
-    // height: 100px;
-    // background: #3b4a6b;
-    // color: #f0d43a;
+    background: white;
+    color: black;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
-    // border: none;
     box-shadow: 2px 4px 5px #444;
 }
 
@@ -164,33 +130,32 @@ h1{
 }
 
 textarea{
-    // background:#22b2da;
-    // color: #f0d43a;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
 }
 // /* Reset style for HTML element on active to have no border*/
-// input:focus,
-// select:focus,
-// textarea:focus,
-// button:focus {
-//     outline: none;
-// }
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    border: 2px black solid;
+    // outline: none;
+}
 /* Style for Placeholder Text*/
 ::placeholder { /* Firefox, Chrome, Opera */ 
-    // color: #f0d43a; 
+    color: #f0d43a; 
     font-family: 'Oswald', sans-serif;
 
 } 
   
 :-ms-input-placeholder { /* Internet Explorer 10-11 */ 
-    // color: #f0d43a; 
+    color: #f0d43a; 
     font-family: 'Oswald', sans-serif;
 
 } 
   
 ::-ms-input-placeholder { /* Microsoft Edge */ 
-    // color: #f0d43a; 
+    color: #f0d43a; 
     font-family: 'Oswald', sans-serif;
 
 } 
