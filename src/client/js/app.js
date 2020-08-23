@@ -27,15 +27,14 @@ function performAction(){
         alert("Departure date must be later than today's date");
         return;
     }    
+
     function datediff(first_date, second_date){
         // Take the difference between the dates and divide by milliseconds per day.
         // Round to nearest whole number to deal with DST.
         return Math.round((second_date - first_date)/(1000*60*60*24));
     }
-    console.log(parseDate(today))
-    console.log(parseDate(date))
+
     let days = datediff(parseDate(today), parseDate(date))
-    console.log(days)
 
     //fetch data from APIs, two independent(geonames, pixabay), one dependent(weatherbit)
     let geonames_url = `http://api.geonames.org/searchJSON?q=${city}&maxRows=1&username=joyceyu6`;
@@ -111,18 +110,18 @@ const updateUI = async () => {
     try{
         const allData = await request.json()
         console.log(allData);
-        
-    document.getElementById('returnDate').innerHTML = allData[0].date;
-    document.getElementById('max_temp').innerHTML = allData[0].max_temp;
-    document.getElementById('min_temp').innerHTML = allData[0].min_temp;
-    document.getElementById('returnCity').innerHTML = allData[0].city;
-    document.getElementById('days').innerHTML = allData[0].days;
-    console.log(allData[0].img);
+    var weatherData = "High: ~"+ allData[0].max_temp + "  Low: ~" + allData[0].min_temp
+    var daystodepart = "Days to departing: " + allData[0].days;
+    var citydata = "My trip to: " + allData[0].city;
+    var departdata = "Departing: " + allData[0].date;
+    document.getElementById('returnCity').innerHTML = `<label>${citydata}<label>`;
+    document.getElementById('returnDate').innerHTML = `<label>${departdata}<label>`;
+    document.getElementById('weather').insertAdjacentHTML('beforeend', `<label>${weatherData}</label>`);
+    document.getElementById('days').innerHTML = `<label>${daystodepart}<label>`;
     document.getElementById('img').src = allData[0].img
     }catch(error){
         console.log("error",error)
     }
 }
-
 
 export{performAction}

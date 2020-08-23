@@ -7,7 +7,55 @@
   <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
   <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
- <body>
+<body>
+  <div class = "container">
+    <div class = "headbuffer"></div> 
+    <div class ="header">
+      <!--Header-->
+      <h1> Travel Planner</h1>
+    </div>
+    <div class = "city">
+      <label for="city">Travel Desitnation</label>
+      <input type="text" id="city" placeholder="Enter city name here">
+    </div>
+    <div class = "departure">
+      <label for="departure">Departure Date</label>
+      <textarea class= "Input" id="date" placeholder="Enter your leaving date YYYY-MM-DD" rows="1" cols="40"></textarea>
+    </div>
+    <div class = "button">
+      <button id="generate" type = "submit"> Save Trip </button>
+    </div>
+  <div class = "buffer"></div> 
+  <div class="image">
+    <img id ="img">
+  </div>
+  <div class = "returnCity">
+    <returnCity id = "returnCity">
+    <label for="returnCity">My trip to: </label>
+  </div> 
+  <div class = "returnDate">
+    <returnDate id = "returnDate">
+    <label for="returnDate">Departing: </label>
+  </div> 
+  <div class = "days">
+    <returnDate id = "days">
+    <label for="days">Days to departing:</label>
+  </div> 
+  <div class = "weather">
+    <label for="weather">Typical weather for then:</label>
+    <weather id = "weather">
+  </div> 
+  <!-- <div class = "post max_temp">
+    <max_temp id = "max_temp">
+    <label for="max_temp">High:</label>
+  </div> -->
+  <!-- <div class = "post min_temp">
+    <min_temp id = "min_temp">
+    <label for="min_temp">Low:</label>
+  </div>  -->
+
+</body>
+ <!-- <body>
 <div id = "app">
   <div class ="holder headline">
     Travel Planner
@@ -18,7 +66,6 @@
   </div>
   <div class= "picture">
     <img id = "img">
-      <!-- <img src = "https://pixabay.com/get/57e0d74b4e52b10ff3d8992cc62f307a103edde74e507440722872d29048c2_640.jpg" alt = "pic"/> -->
     </div>
   </div>
   <div class ="holder ">
@@ -48,5 +95,5 @@
       });
   }
 </script> -->
-</body>
+<!-- </body> -->
 </html>
