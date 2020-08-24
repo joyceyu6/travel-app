@@ -18,43 +18,37 @@
 // }
 
 
-
+/* Anything smaller than first breakpoint 600px */
 .container{
     display: grid;
     // grid-gap:10px 15px;
-    justify-items:left;/*row axis, stretch is default, other options:start, end*/
-    align-items: center; /*column axis */
-    justify-content: center;
-    align-content: center;
+    // justify-items:right;/*row axis, stretch is default, other options:start, end*/
+    // align-items: right; /*column axis */
+    // justify-content: center;
+    // align-content: center;
     // grid-template-columns: repeat(3,minmax(150px, 1fr));
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(10,1fr);
+    // height:90vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 250px 2fr;
     grid-template-areas:
-        "b1 b1 b1"
-        "h h holder"
-        "h h holder"
-        "h h holder"
-        "b2 b2 b2"
-        "pic pic post"
-        "pic pic post"
-        "pic pic post"
-        "pic pic post"
-        "b3 b3 b3"
+        "h"
+        "holder"
+        "pic"
+        "post"
+      
 }
 
-.b1,.h,.holder{
+.h,.holder{
     width: 100%;
     height: 100%;
     background: #F8FA9D;
 }
 
-.b2,.pic,.post,.b3{
+.pic,.post{
     width: 100%;
     height: 100%;
     background: pink;
-}
-.headbuffer{
-    grid-area: b1;
+    overflow-wrap: normal;
 }
 
 .header{
@@ -68,40 +62,9 @@
     grid-area: pic;
 }
 
-.city{
-    grid-area: 2/3/3/4 /*grid-row-start+grid-column-start+grid-row-end+grid-column-end*/
-}
-
-.departure{
-    grid-area: 3/3/4/4
-}
-
-.button{
-    grid-area: 4/3/5/4
-}
-
-.buffer{
-    grid-area: b2;
-}
-
-.returnCity{
-    grid-area: 6/3/7/4
-}
-
-.returnDate{
-    grid-area: 7/3/8/4
-}
-
-.days{
-    grid-area: 8/3/9/4
-}
-
-.weather{
-    grid-area: 9/3/10/4
-}
-
-.endbuffer{
-    grid-area: b3;
+.postData{
+    object-fit:cover;
+    grid-area:post
 }
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
@@ -159,3 +122,28 @@ button:focus {
     font-family: 'Oswald', sans-serif;
 
 } 
+
+/*Medium Screens*/
+@media(min-width:640px) and (max-width:900px){
+    .container{
+        display:grid;
+        grid-template-columns:300px,300px,1fr;
+        grid-template-rows: 250px,600px;
+        grid-template-areas:
+        "h h holder"
+        "pic pic post"
+  
+    }
+}
+
+/*Large Screens*/
+@media(min-width:901px){
+    .container{
+        display:grid;
+        grid-template-areas:
+        "h holder holder"
+        "pic post post"
+        "pic post post"
+        "pic post post"
+    }
+}

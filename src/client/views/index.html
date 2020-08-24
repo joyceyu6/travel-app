@@ -8,44 +8,43 @@
   <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
 <body>
-  <div class = "container">
-    <div class = "b1 headbuffer"></div> 
+  <div class = "container"> 
     <div class ="h header">
       <!--Header-->
       <h1> Travel Planner</h1>
     </div>
-    <div class = "holder city">
-      <label for="holder city">Travel Desitnation</label>
+    <div class = "holder">
+      <label for="holder">Travel Desitnation</label>
       <input type="text" id="city" placeholder="Enter city name here">
-    </div>
-    <div class = "holder departure">
-      <label for="holder departure">Departure Date</label>
+      <label for="holder">Departure Date</label>
       <textarea class= "Input" id="date" placeholder="Enter your leaving date YYYY-MM-DD" rows="1" cols="40"></textarea>
-    </div>
-    <div class = "holder button">
       <button id="generate" type = "submit"> Save Trip </button>
     </div>
-  <div class = "b2 buffer"></div> 
   <div class="pic image">
     <img id ="img">
   </div>
-  <div class = "post returnCity">
-    <returnCity id = "returnCity">
-    <label for="returnCity">My trip to: </label>
-  </div> 
-  <div class = "post returnDate">
-    <returnDate id = "returnDate">
-    <label for="returnDate">Departing: </label>
-  </div> 
-  <div class = "post days">
-    <returnDate id = "days">
-    <label for="days">Days to departing:</label>
-  </div> 
-  <div class = "post weather">
-    <label for="post weather">Typical weather for then:</label>
-    <weather id = "weather"></weather>
-  </div> 
-  <div class = "b3 endbuffer"></div> 
+  <div class = "post postData">
+    <br />
+    <div> 
+      <returnCity id = "returnCity">
+      <label for="returnCity">My trip to: </label>
+    </div> 
+    <br />
+    <div>
+      <returnDate id = "returnDate">
+      <label for="returnDate">Departing: </label>
+    </div> 
+    <br />
+    <div>
+      <returnDate id = "days">
+      <label for="days">Days to departing:</label>
+    </div> 
+    <br />
+    <div>
+      <label>Typical weather for then:</label>
+      <weather id = "weather"></weather>
+   </div> 
+ 
   <!-- <div class = "post max_temp">
     <max_temp id = "max_temp">
     <label for="max_temp">High:</label>

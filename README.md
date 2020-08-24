@@ -95,7 +95,7 @@ Build a web tool that allows users to enter the location they are traveling to a
 
 ## Addtional Notes
 **Important**
-* Due to Weatherbit API free access limit, departure date for this demo can only be one day from today 
+* Due to Weatherbit API free access limit, departure date for this demo can only be one day from today
 
 
 
