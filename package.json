@@ -4,7 +4,7 @@
   "description": "travel-app for user to get info on travel destination",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node src/server/index.js",
     "build-prod": "webpack --config webpack.prod.js",
     "build-dev": "webpack-dev-server  --config webpack.dev.js --open"
@@ -25,12 +25,17 @@
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^4.2.1",
     "html-webpack-plugin": "^4.3.0",
+    "jest": "^26.4.2",
+    "jslint": "^0.12.1",
     "mini-css-extract-plugin": "^0.10.0",
     "node-sass": "^4.14.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "regenerator-runtime": "^0.13.7",
     "sass-loader": "^9.0.3",
     "style-loader": "^1.2.1",
+    "supertest": "^4.0.2",
     "terser-webpack-plugin": "^4.1.0",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "workbox-webpack-plugin": "^5.1.3"
   }
 }

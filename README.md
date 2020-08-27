@@ -10,7 +10,7 @@ Build a web tool that allows users to enter the location they are traveling to a
 * Webpack Loaders - babel, style, CSS, sass, MiniCssExtract
 * Webpack Plugins - HtmlWebPack, CleanWebpack,OptimizeCssWebPack, TerserWebpack
 * Service Worker
-* Unit Test - Jest
+* NodeJs/Express API Test - Jest and Supertest
 
 ## Install Prerequisites
 1. Install NPM or upgrade NPM if you already have it installed 
@@ -41,13 +41,14 @@ Build a web tool that allows users to enter the location they are traveling to a
         npm i -D mini-css-extract-plugin
         npm i -D optimize-css-assets-webpack-plugin terser-webpack-plugin
 
-6. Install Service Worker (not installed yet)
+6. Install Service Worker
         
         npm install workbox-webpack-plugin --save-dev
 
-7. Install Jest (not installed yet)
+7. Install Jest and Supertest
 
-        npm install --save-dev jest
+        npm install --save-dev jest supertest
+        npm i regenerator-runtime --save-dev
 
 ## Run the code
 1. How to run development environment of the Application
@@ -96,6 +97,7 @@ Build a web tool that allows users to enter the location they are traveling to a
 ## Addtional Notes
 **Important**
 * Due to Weatherbit API free access limit, departure date for this demo can only be one day from today
+* Extend Option Implemented: input end date and display length of trip
 
 
 

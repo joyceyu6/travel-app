@@ -18,7 +18,11 @@
       <input type="text" id="city" placeholder="Enter city name here">
       <label for="holder">Departure Date</label>
       <textarea class= "Input" id="date" placeholder="Enter your leaving date YYYY-MM-DD" rows="1" cols="40"></textarea>
-      <button id="generate" type = "submit"> Save Trip </button>
+      <label for="holder">Returning Date</label>
+      <textarea class= "Input" id="enddate" placeholder="Enter your returning date YYYY-MM-DD" rows="1" cols="40"></textarea>
+      <div>
+        <button id="generate" type = "submit"> Save Trip </button>
+      </div>
     </div>
   <div class="pic image">
     <img id ="img">
@@ -41,59 +45,13 @@
     </div> 
     <br />
     <div>
+      <returnDate id = "stay">
+      <label for="stay">Length of trip:</label>
+    </div> 
+    <br />
+    <div>
       <label>Typical weather for then:</label>
       <weather id = "weather"></weather>
    </div> 
- 
-  <!-- <div class = "post max_temp">
-    <max_temp id = "max_temp">
-    <label for="max_temp">High:</label>
-  </div> -->
-  <!-- <div class = "post min_temp">
-    <min_temp id = "min_temp">
-    <label for="min_temp">Low:</label>
-  </div>  -->
-
 </body>
- <!-- <body>
-<div id = "app">
-  <div class ="holder headline">
-    Travel Planner
-  </div>
-  <div class ="holder city">
-    <label for="city">Travel Desitnation</label>
-    <input type="text" id="city" placeholder="enter city name here">
-  </div>
-  <div class= "picture">
-    <img id = "img">
-    </div>
-  </div>
-  <div class ="holder ">
-    <label for="date">Departure Date</label>
-    <textarea class= "myInput" id="date" placeholder="Enter the date you are leaving YYYY-MM-DD" rows="1" cols="50"></textarea>
-    <button id="generate" type = "submit"> save trip </button>
-  </div>
-  <div class ="holder entry">
-    <div class = "title">Most Recent Entry</div>
-   <div id = "entryHolder">
-   <div id = "returnCity"></div> 
-   <div id = "returnDate"></div>
-   <div id = "days"></div>
-   <div id = "max_temp"></div>
-   <div id = "min_temp"></div>
-
-  </div>
-  </div>
-</div>
-<!-- <script src="app.js" type="text/javascript"></script> -->
-<!-- <script>
-  // Check that service workers are supported
-  if ('serviceWorker' in navigator) {
-      // Use the window load event to keep the page load performant
-      window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/service-worker.js');
-      });
-  }
-</script> -->
-<!-- </body> -->
 </html>

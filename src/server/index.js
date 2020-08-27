@@ -1,4 +1,4 @@
-var path = require('path')
+
 const express = require('express');
 
 // Start up an instance of app
@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 
 // Cors for cross origin allowance
 const cors = require('cors');
+const { request } = require('http');
 app.use(cors());
 
 // Initialize the main project folder
@@ -31,6 +32,19 @@ const server = app.listen(port, listening);
     console.log(`running on localhost: ${port}`);
   };
   
+  //Dummy API Endpoint for express server and app test
+const fakeData = {
+  min_temp: '15',
+  max_temp: '30',
+  img: 'https://pixabay.com/api/?key=17745132-119267ba49b6c78eca0944594&q=Paris&image_type=photo'
+}
+
+app.get('/fakeWeatherData', getFakeData)
+
+function getFakeData(req, res){
+ res.send(fakeData)
+}
+
   // GET route
   const weatherData=[];
   
@@ -46,23 +60,16 @@ const server = app.listen(port, listening);
 
   
   function addWeather(req,res){
-    // console.log(req.body)
-    newEntry = {
-    date: req.body.date,
-    days: req.body.days,
-    city: req.body.city,
-    max_temp: req.body.max_temp,
-    min_temp: req.body.min_temp,
-    img:req.body.img
-    }
-    
-    // weatherData.push(newEntry)
+    const newEntry = req.body;
+
     if (weatherData.length == 0){
       weatherData.push(newEntry);
     }
     else{
-    weatherData[0] = newEntry;    
+      weatherData[0] = newEntry;    
     }
-    console.log(weatherData);
+   
     res.end();
 }
+
+module.exports = app;

@@ -13,7 +13,8 @@ document.getElementById('generate').addEventListener('click', performAction);
 
 function performAction(){
 //select the actual value of an HTML input to include in POST  
-    const date =  document.getElementById('date').value;    
+    const date =  document.getElementById('date').value;   
+    const enddate =  document.getElementById('enddate').value;   
     const city = document.getElementById('city').value;
     
     // calculate days between departure date and today
@@ -35,6 +36,15 @@ function performAction(){
     }
 
     let days = datediff(parseDate(today), parseDate(date))
+
+    //calculate days between departure date and end date, i.e., length of trip
+    //check returning date is later than departure date, if not stop here
+    if (!Client.checkDate(parseDate(date),parseDate(enddate))){
+        alert("Returning date must be later than departure date");
+        return;
+    }  
+
+    let stay = datediff(parseDate(date), parseDate(enddate))
 
     //fetch data from APIs, two independent(geonames, pixabay), one dependent(weatherbit)
     let geonames_url = `http://api.geonames.org/searchJSON?q=${city}&maxRows=1&username=joyceyu6`;
@@ -68,7 +78,7 @@ function performAction(){
     }).then(async data=>{
         //Add data
         console.log(data)        
-        await postData('http://localhost:3000/addWeather',{min_temp:data.data[0].min_temp, max_temp: data.data[0].max_temp, city:city, date:date, days:days, img:img})
+        await postData('http://localhost:3000/addWeather',{min_temp:data.data[0].min_temp, max_temp: data.data[0].max_temp, city:city, date:date, days:days, stay: stay, img:img})
         updateUI()
     }).catch(function(error){
         console.log(error);
@@ -90,7 +100,7 @@ const postData = async (url = '', data={})=>{
     .catch(error => console.log(error))    
 }
 
-
+// /*GET not really used in this app hence notated out but kept for future reference*/
 // const getWeather = async(url)=>{
 //     const res = await fetch(url)
 //     try{
@@ -110,16 +120,18 @@ const updateUI = async () => {
     try{
         const allData = await request.json()
         console.log(allData);
-    var weatherData = "High: ~"+ allData[0].max_temp + "  Low: ~" + allData[0].min_temp
-    var daystodepart = "Days to departing: " + allData[0].days;
-    var citydata = "My trip to: " + allData[0].city;
-    var departdata = "Departing: " + allData[0].date;
-    document.getElementById('returnCity').innerHTML = `<label>${citydata}<label>`;
-    document.getElementById('returnDate').innerHTML = `<label>${departdata}<label>`;
-    document.getElementById('weather').insertAdjacentHTML('beforeend', `<label>${weatherData}</label>`);
-    document.getElementById('days').innerHTML = `<label>${daystodepart}<label>`;
-    document.getElementById('img').src = allData[0].img
-    }catch(error){
+        var weatherData = "High: ~"+ allData[0].max_temp + "  Low: ~" + allData[0].min_temp
+        var daystodepart = "Days to departing: " + allData[0].days;
+        var daysofstay = "Length of trip: " + allData[0].stay + " day(s)";
+        var citydata = "My trip to: " + allData[0].city;
+        var departdata = "Departing: " + allData[0].date;
+        document.getElementById('returnCity').innerHTML = `<label>${citydata}<label>`;
+        document.getElementById('returnDate').innerHTML = `<label>${departdata}<label>`;
+        document.getElementById('weather').insertAdjacentHTML('beforeend', `<label>${weatherData}</label>`);
+        document.getElementById('days').innerHTML = `<label>${daystodepart}<label>`;
+        document.getElementById('stay').innerHTML = `<label>${daysofstay}<label>`;
+        document.getElementById('img').src = allData[0].img
+    } catch(error) {
         console.log("error",error)
     }
 }
