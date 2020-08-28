@@ -72,9 +72,13 @@ function performAction(){
         let weatherbit_url = `http://api.weatherbit.io/v2.0/history/daily?&lat=${lat}&lon=${lng}&start_date=${today}&end_date=${date}&key=7b34a8915b2540ccaae49e3b2558d219`;
         console.log(weatherbit_url);
         //fetch weatherbit API which is dependent on geonames API
-        return fetch(weatherbit_url)
-            .then(response =>response.json());
-   
+        return fetch(weatherbit_url, {
+                mode: 'cors',
+                header: {
+                    'Access-Control-Allow-Origin': '*',
+                }
+            })
+            .then(response => response.json());
     }).then(async data=>{
         //Add data
         console.log(data)        
