@@ -18,6 +18,7 @@
       <input type="text" id="city" placeholder="Enter city name here">
       <label for="holder">Departure Date</label>
       <textarea class= "Input" id="date" placeholder="Enter your leaving date YYYY-MM-DD" rows="1" cols="40"></textarea>
+<!--       It make more sense to use <input> with type="date" attribute for the date input here instead of using a textarea input. -->
       <label for="holder">Returning Date</label>
       <textarea class= "Input" id="enddate" placeholder="Enter your returning date YYYY-MM-DD" rows="1" cols="40"></textarea>
       <div>
@@ -53,5 +54,15 @@
       <label>Typical weather for then:</label>
       <weather id = "weather"></weather>
    </div> 
+   <!-- enable service worker installation -->
+   <script>
+    /* Check that service workers are supported */
+    if ('serviceWorker' in navigator) {
+        /* Use the window load event to keep the page load performant */
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js');
+        });
+    }
+  </script>   
 </body>
 </html>
